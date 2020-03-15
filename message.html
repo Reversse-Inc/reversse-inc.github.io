@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>V&eacute;rifier votre courriel</title>
+    <style>
+        btn-verify {
+            display: block;
+            width: 115px;
+            height: 25px;
+            background: #F9D039;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <p>
+            Merci d\'avoir cr&eacute;&eacute; un compte sur le site LITE.
+            Pour v&eacute;rifier votre adresse email, cliquez sur le bouton ci-dessous qui vous 
+            redirigeras vers la page principal du site.
+        </p>
+        <a href="http://localhost/user-verification/index.php?token=' . $token . '" class="btn-verify">V&eacute;rifier</a>
+    </div>
+</body>
+</html>
