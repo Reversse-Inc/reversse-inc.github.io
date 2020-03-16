@@ -1,0 +1,1290 @@
+<?php require_once 'controllers/authController.php' ?>
+
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Register</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+   <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4 form-div">
+                    <form action="signup.php" method="post">
+                        <h3 class="text-center">Register</h3>
+
+                        <?php if(count($errors) > 0): ?>
+                        <div class="alert alert-danger">
+                            <?php foreach($errors as $error): ?>
+                            <li><?php echo $error; ?></li>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" value="<?php echo $username; ?>" class="form-control form-control-lg">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" value="<?php echo $email; ?>" class="form-control form-control-lg">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div
+                                class="btn-group bootstrap-select countrynav country-picker-large form-control countrynav-only">
+                                <button type="button" class="btn dropdown-toggle form-control selectpicker btn-default"
+                                    data-toggle="dropdown" title="SELECT A COUNTRY" aria-expanded="false"><span
+                                        class="filter-option pull-left"><i class=" fa fa-search"></i> SELECT A
+                                        COUNTRY</span>&nbsp;<span class="caret"></span></button>
+                                <div class="dropdown-menu open" style="max-height: 314px; overflow: hidden;">
+                                    <div class="bs-searchbox"><input type="text" class="form-control"
+                                            autocomplete="off"></div>
+                                    <ul class="dropdown-menu inner selectpicker" role="menu"
+                                        style="max-height: 261px; overflow-y: auto;">
+                                        <li data-original-index="0" class="selected active"><a tabindex="0" class=""
+                                                data-normalized-text="<span class=&quot; fa fa-search&quot;></span> <span class=&quot;text&quot;>SELECT A COUNTRY</span>"
+                                                data-tokens="null"><span class=" fa fa-search"></span> <span
+                                                    class="text">SELECT A COUNTRY</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="1"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag af fnone'><span>Afghanistan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag af fnone"><span>Afghanistan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="2"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag al fnone'><span>Albania</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag al fnone"><span>Albania</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="3"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag dz fnone'><span>Algeria</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag dz fnone"><span>Algeria</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="4"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag as fnone'><span>American Samoa</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag as fnone"><span>American Samoa</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="5"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ad fnone'><span>Andorra</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ad fnone"><span>Andorra</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="6"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ao fnone'><span>Angola</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ao fnone"><span>Angola</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="7"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ai fnone'><span>Anguilla</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ai fnone"><span>Anguilla</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="8"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag aq fnone'><span>Antarctica</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag aq fnone"><span>Antarctica</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="9"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ag fnone'><span>Antigua and Barbuda</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ag fnone"><span>Antigua and Barbuda</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="10"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ar fnone'><span>Argentina</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ar fnone"><span>Argentina</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="11"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag am fnone'><span>Armenia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag am fnone"><span>Armenia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="12"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag aw fnone'><span>Aruba</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag aw fnone"><span>Aruba</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="13"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag au fnone'><span>Australia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag au fnone"><span>Australia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="14"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag at fnone'><span>Austria</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag at fnone"><span>Austria</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="15"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag az fnone'><span>Azerbaijan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag az fnone"><span>Azerbaijan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="16"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bs fnone'><span>Bahamas</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bs fnone"><span>Bahamas</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="17"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bh fnone'><span>Bahrain</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bh fnone"><span>Bahrain</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="18"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bd fnone'><span>Bangladesh</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bd fnone"><span>Bangladesh</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="19"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bb fnone'><span>Barbados</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bb fnone"><span>Barbados</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="20"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag by fnone'><span>Belarus</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag by fnone"><span>Belarus</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="21"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag be fnone'><span>Belgium</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag be fnone"><span>Belgium</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="22"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bz fnone'><span>Belize</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bz fnone"><span>Belize</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="23"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bj fnone'><span>Benin</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bj fnone"><span>Benin</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="24"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bm fnone'><span>Bermuda</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bm fnone"><span>Bermuda</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="25"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bt fnone'><span>Bhutan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bt fnone"><span>Bhutan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="26"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bo fnone'><span>Bolivia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bo fnone"><span>Bolivia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="27"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ba fnone'><span>Bosnia and Herzegovina</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ba fnone"><span>Bosnia and Herzegovina</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="28"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bw fnone'><span>Botswana</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bw fnone"><span>Botswana</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="29"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag br fnone'><span>Brazil</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag br fnone"><span>Brazil</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="30"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag io fnone'><span>British Indian Ocean Territory</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag io fnone"><span>British Indian Ocean
+                                                    Territory</span><span class=" glyphicon-ok check-mark"></span></a>
+                                        </li>
+                                        <li data-original-index="31"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag vg fnone'><span>British Virgin Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag vg fnone"><span>British Virgin Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="32"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bn fnone'><span>Brunei</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bn fnone"><span>Brunei</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="33"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bg fnone'><span>Bulgaria</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bg fnone"><span>Bulgaria</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="34"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bf fnone'><span>Burkina Faso</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bf fnone"><span>Burkina Faso</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="35"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bi fnone'><span>Burundi</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bi fnone"><span>Burundi</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="36"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kh fnone'><span>Cambodia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kh fnone"><span>Cambodia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="37"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cm fnone'><span>Cameroon</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cm fnone"><span>Cameroon</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="38"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ca fnone'><span>Canada</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ca fnone"><span>Canada</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="39"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cv fnone'><span>Cape Verde</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cv fnone"><span>Cape Verde</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="40"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ky fnone'><span>Cayman Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ky fnone"><span>Cayman Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="41"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cf fnone'><span>Central African Republic</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cf fnone"><span>Central African Republic</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="42"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag td fnone'><span>Chad</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag td fnone"><span>Chad</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="43"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cl fnone'><span>Chile</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cl fnone"><span>Chile</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="44"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cn fnone'><span>China</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cn fnone"><span>China</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="45"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cx fnone'><span>Christmas Island</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cx fnone"><span>Christmas Island</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="46"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cc fnone'><span>Cocos Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cc fnone"><span>Cocos Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="47"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag co fnone'><span>Colombia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag co fnone"><span>Colombia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="48"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag km fnone'><span>Comoros</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag km fnone"><span>Comoros</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="49"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ck fnone'><span>Cook Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ck fnone"><span>Cook Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="50"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cr fnone'><span>Costa Rica</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cr fnone"><span>Costa Rica</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="51"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag hr fnone'><span>Croatia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag hr fnone"><span>Croatia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="52"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cu fnone'><span>Cuba</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cu fnone"><span>Cuba</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="53"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cw fnone'><span>Curacao</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cw fnone"><span>Curacao</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="54"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cy fnone'><span>Cyprus</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cy fnone"><span>Cyprus</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="55"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cz fnone'><span>Czech Republic</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cz fnone"><span>Czech Republic</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="56"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cd fnone'><span>Democratic Republic of the Congo</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cd fnone"><span>Democratic Republic of the
+                                                    Congo</span><span class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="57"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag dk fnone'><span>Denmark</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag dk fnone"><span>Denmark</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="58"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag dj fnone'><span>Djibouti</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag dj fnone"><span>Djibouti</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="59"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag dm fnone'><span>Dominica</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag dm fnone"><span>Dominica</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="60"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag do fnone'><span>Dominican Republic</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag do fnone"><span>Dominican Republic</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="61"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tl fnone'><span>East Timor</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tl fnone"><span>East Timor</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="62"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ec fnone'><span>Ecuador</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ec fnone"><span>Ecuador</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="63"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag eg fnone'><span>Egypt</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag eg fnone"><span>Egypt</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="64"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sv fnone'><span>El Salvador</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sv fnone"><span>El Salvador</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="65"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gq fnone'><span>Equatorial Guinea</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gq fnone"><span>Equatorial Guinea</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="66"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag er fnone'><span>Eritrea</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag er fnone"><span>Eritrea</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="67"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ee fnone'><span>Estonia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ee fnone"><span>Estonia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="68"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag et fnone'><span>Ethiopia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag et fnone"><span>Ethiopia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="69"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag fk fnone'><span>Falkland Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag fk fnone"><span>Falkland Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="70"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag fo fnone'><span>Faroe Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag fo fnone"><span>Faroe Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="71"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag fj fnone'><span>Fiji</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag fj fnone"><span>Fiji</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="72"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag fi fnone'><span>Finland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag fi fnone"><span>Finland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="73"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag fr fnone'><span>France</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag fr fnone"><span>France</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="74"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pf fnone'><span>French Polynesia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pf fnone"><span>French Polynesia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="75"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ga fnone'><span>Gabon</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ga fnone"><span>Gabon</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="76"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gm fnone'><span>Gambia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gm fnone"><span>Gambia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="77"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ge fnone'><span>Georgia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ge fnone"><span>Georgia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="78"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag de fnone'><span>Germany</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag de fnone"><span>Germany</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="79"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gh fnone'><span>Ghana</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gh fnone"><span>Ghana</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="80"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gi fnone'><span>Gibraltar</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gi fnone"><span>Gibraltar</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="81"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gr fnone'><span>Greece</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gr fnone"><span>Greece</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="82"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gl fnone'><span>Greenland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gl fnone"><span>Greenland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="83"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gd fnone'><span>Grenada</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gd fnone"><span>Grenada</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="84"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gu fnone'><span>Guam</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gu fnone"><span>Guam</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="85"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gt fnone'><span>Guatemala</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gt fnone"><span>Guatemala</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="86"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gg fnone'><span>Guernsey</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gg fnone"><span>Guernsey</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="87"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gn fnone'><span>Guinea</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gn fnone"><span>Guinea</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="88"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gw fnone'><span>Guinea-Bissau</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gw fnone"><span>Guinea-Bissau</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="89"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gy fnone'><span>Guyana</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gy fnone"><span>Guyana</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="90"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ht fnone'><span>Haiti</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ht fnone"><span>Haiti</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="91"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag hn fnone'><span>Honduras</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag hn fnone"><span>Honduras</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="92"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag hk fnone'><span>Hong Kong</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag hk fnone"><span>Hong Kong</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="93"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag hu fnone'><span>Hungary</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag hu fnone"><span>Hungary</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="94"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag is fnone'><span>Iceland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag is fnone"><span>Iceland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="95"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag in fnone'><span>India</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag in fnone"><span>India</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="96"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag id fnone'><span>Indonesia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag id fnone"><span>Indonesia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="97"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ir fnone'><span>Iran</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ir fnone"><span>Iran</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="98"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag iq fnone'><span>Iraq</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag iq fnone"><span>Iraq</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="99"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ie fnone'><span>Ireland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ie fnone"><span>Ireland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="100"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag im fnone'><span>Isle of Man</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag im fnone"><span>Isle of Man</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="101"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag il fnone'><span>Israel</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag il fnone"><span>Israel</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="102"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag it fnone'><span>Italy</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag it fnone"><span>Italy</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="103"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ci fnone'><span>Ivory Coast</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ci fnone"><span>Ivory Coast</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="104"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag jm fnone'><span>Jamaica</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag jm fnone"><span>Jamaica</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="105"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag jp fnone'><span>Japan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag jp fnone"><span>Japan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="106"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag je fnone'><span>Jersey</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag je fnone"><span>Jersey</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="107"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag jo fnone'><span>Jordan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag jo fnone"><span>Jordan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="108"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kz fnone'><span>Kazakhstan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kz fnone"><span>Kazakhstan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="109"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ke fnone'><span>Kenya</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ke fnone"><span>Kenya</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="110"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ki fnone'><span>Kiribati</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ki fnone"><span>Kiribati</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="111"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag xk fnone'><span>Kosovo</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag xk fnone"><span>Kosovo</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="112"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kw fnone'><span>Kuwait</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kw fnone"><span>Kuwait</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="113"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kg fnone'><span>Kyrgyzstan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kg fnone"><span>Kyrgyzstan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="114"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag la fnone'><span>Laos</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag la fnone"><span>Laos</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="115"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lv fnone'><span>Latvia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lv fnone"><span>Latvia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="116"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lb fnone'><span>Lebanon</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lb fnone"><span>Lebanon</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="117"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ls fnone'><span>Lesotho</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ls fnone"><span>Lesotho</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="118"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lr fnone'><span>Liberia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lr fnone"><span>Liberia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="119"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ly fnone'><span>Libya</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ly fnone"><span>Libya</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="120"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag li fnone'><span>Liechtenstein</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag li fnone"><span>Liechtenstein</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="121"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lt fnone'><span>Lithuania</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lt fnone"><span>Lithuania</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="122"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lu fnone'><span>Luxembourg</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lu fnone"><span>Luxembourg</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="123"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mo fnone'><span>Macau</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mo fnone"><span>Macau</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="124"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mk fnone'><span>Macedonia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mk fnone"><span>Macedonia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="125"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mg fnone'><span>Madagascar</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mg fnone"><span>Madagascar</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="126"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mw fnone'><span>Malawi</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mw fnone"><span>Malawi</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="127"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag my fnone'><span>Malaysia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag my fnone"><span>Malaysia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="128"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mv fnone'><span>Maldives</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mv fnone"><span>Maldives</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="129"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ml fnone'><span>Mali</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ml fnone"><span>Mali</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="130"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mt fnone'><span>Malta</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mt fnone"><span>Malta</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="131"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mh fnone'><span>Marshall Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mh fnone"><span>Marshall Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="132"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mr fnone'><span>Mauritania</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mr fnone"><span>Mauritania</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="133"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mu fnone'><span>Mauritius</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mu fnone"><span>Mauritius</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="134"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag yt fnone'><span>Mayotte</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag yt fnone"><span>Mayotte</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="135"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mx fnone'><span>Mexico</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mx fnone"><span>Mexico</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="136"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag fm fnone'><span>Micronesia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag fm fnone"><span>Micronesia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="137"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag md fnone'><span>Moldova</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag md fnone"><span>Moldova</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="138"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mc fnone'><span>Monaco</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mc fnone"><span>Monaco</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="139"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mn fnone'><span>Mongolia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mn fnone"><span>Mongolia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="140"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag me fnone'><span>Montenegro</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag me fnone"><span>Montenegro</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="141"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ms fnone'><span>Montserrat</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ms fnone"><span>Montserrat</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="142"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ma fnone'><span>Morocco</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ma fnone"><span>Morocco</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="143"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mz fnone'><span>Mozambique</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mz fnone"><span>Mozambique</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="144"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mm fnone'><span>Myanmar</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mm fnone"><span>Myanmar</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="145"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag na fnone'><span>Namibia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag na fnone"><span>Namibia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="146"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag nr fnone'><span>Nauru</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag nr fnone"><span>Nauru</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="147"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag np fnone'><span>Nepal</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag np fnone"><span>Nepal</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="148"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag nl fnone'><span>Netherlands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag nl fnone"><span>Netherlands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="149"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag an fnone'><span>Netherlands Antilles</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag an fnone"><span>Netherlands Antilles</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="150"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag nc fnone'><span>New Caledonia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag nc fnone"><span>New Caledonia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="151"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag nz fnone'><span>New Zealand</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag nz fnone"><span>New Zealand</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="152"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ni fnone'><span>Nicaragua</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ni fnone"><span>Nicaragua</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="153"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ne fnone'><span>Niger</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ne fnone"><span>Niger</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="154"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ng fnone'><span>Nigeria</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ng fnone"><span>Nigeria</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="155"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag nu fnone'><span>Niue</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag nu fnone"><span>Niue</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="156"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kp fnone'><span>North Korea</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kp fnone"><span>North Korea</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="157"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mp fnone'><span>Northern Mariana Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mp fnone"><span>Northern Mariana Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="158"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag no fnone'><span>Norway</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag no fnone"><span>Norway</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="159"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag om fnone'><span>Oman</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag om fnone"><span>Oman</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="160"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pk fnone'><span>Pakistan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pk fnone"><span>Pakistan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="161"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pw fnone'><span>Palau</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pw fnone"><span>Palau</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="162"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ps fnone'><span>Palestine</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ps fnone"><span>Palestine</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="163"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pa fnone'><span>Panama</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pa fnone"><span>Panama</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="164"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pg fnone'><span>Papua New Guinea</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pg fnone"><span>Papua New Guinea</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="165"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag py fnone'><span>Paraguay</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag py fnone"><span>Paraguay</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="166"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pe fnone'><span>Peru</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pe fnone"><span>Peru</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="167"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ph fnone'><span>Philippines</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ph fnone"><span>Philippines</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="168"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pn fnone'><span>Pitcairn</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pn fnone"><span>Pitcairn</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="169"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pl fnone'><span>Poland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pl fnone"><span>Poland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="170"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pt fnone'><span>Portugal</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pt fnone"><span>Portugal</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="171"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pr fnone'><span>Puerto Rico</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pr fnone"><span>Puerto Rico</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="172"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag qa fnone'><span>Qatar</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag qa fnone"><span>Qatar</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="173"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag cg fnone'><span>Republic of the Congo</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag cg fnone"><span>Republic of the Congo</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="174"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag re fnone'><span>Reunion</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag re fnone"><span>Reunion</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="175"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ro fnone'><span>Romania</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ro fnone"><span>Romania</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="176"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ru fnone'><span>Russia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ru fnone"><span>Russia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="177"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag rw fnone'><span>Rwanda</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag rw fnone"><span>Rwanda</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="178"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag bl fnone'><span>Saint Barthelemy</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag bl fnone"><span>Saint Barthelemy</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="179"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sh fnone'><span>Saint Helena</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sh fnone"><span>Saint Helena</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="180"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kn fnone'><span>Saint Kitts and Nevis</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kn fnone"><span>Saint Kitts and Nevis</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="181"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lc fnone'><span>Saint Lucia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lc fnone"><span>Saint Lucia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="182"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag mf fnone'><span>Saint Martin</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag mf fnone"><span>Saint Martin</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="183"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag pm fnone'><span>Saint Pierre and Miquelon</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag pm fnone"><span>Saint Pierre and Miquelon</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="184"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag vc fnone'><span>Saint Vincent and the Grenadines</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag vc fnone"><span>Saint Vincent and the
+                                                    Grenadines</span><span class=" glyphicon-ok check-mark"></span></a>
+                                        </li>
+                                        <li data-original-index="185"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ws fnone'><span>Samoa</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ws fnone"><span>Samoa</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="186"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sm fnone'><span>San Marino</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sm fnone"><span>San Marino</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="187"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag st fnone'><span>Sao Tome and Principe</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag st fnone"><span>Sao Tome and Principe</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="188"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sa fnone'><span>Saudi Arabia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sa fnone"><span>Saudi Arabia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="189"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sn fnone'><span>Senegal</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sn fnone"><span>Senegal</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="190"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag rs fnone'><span>Serbia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag rs fnone"><span>Serbia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="191"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sc fnone'><span>Seychelles</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sc fnone"><span>Seychelles</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="192"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sl fnone'><span>Sierra Leone</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sl fnone"><span>Sierra Leone</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="193"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sg fnone'><span>Singapore</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sg fnone"><span>Singapore</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="194"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sx fnone'><span>Sint Maarten</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sx fnone"><span>Sint Maarten</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="195"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sk fnone'><span>Slovakia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sk fnone"><span>Slovakia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="196"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag si fnone'><span>Slovenia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag si fnone"><span>Slovenia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="197"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sb fnone'><span>Solomon Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sb fnone"><span>Solomon Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="198"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag so fnone'><span>Somalia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag so fnone"><span>Somalia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="199"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag za fnone'><span>South Africa</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag za fnone"><span>South Africa</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="200"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag kr fnone'><span>South Korea</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag kr fnone"><span>South Korea</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="201"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ss fnone'><span>South Sudan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ss fnone"><span>South Sudan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="202"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag es fnone'><span>Spain</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag es fnone"><span>Spain</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="203"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag lk fnone'><span>Sri Lanka</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag lk fnone"><span>Sri Lanka</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="204"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sd fnone'><span>Sudan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sd fnone"><span>Sudan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="205"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sr fnone'><span>Suriname</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sr fnone"><span>Suriname</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="206"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sj fnone'><span>Svalbard and Jan Mayen</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sj fnone"><span>Svalbard and Jan Mayen</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="207"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sz fnone'><span>Swaziland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sz fnone"><span>Swaziland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="208"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag se fnone'><span>Sweden</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag se fnone"><span>Sweden</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="209"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ch fnone'><span>Switzerland</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ch fnone"><span>Switzerland</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="210"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag sy fnone'><span>Syria</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag sy fnone"><span>Syria</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="211"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tw fnone'><span>Taiwan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tw fnone"><span>Taiwan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="212"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tj fnone'><span>Tajikistan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tj fnone"><span>Tajikistan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="213"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tz fnone'><span>Tanzania</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tz fnone"><span>Tanzania</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="214"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag th fnone'><span>Thailand</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag th fnone"><span>Thailand</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="215"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tg fnone'><span>Togo</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tg fnone"><span>Togo</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="216"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tk fnone'><span>Tokelau</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tk fnone"><span>Tokelau</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="217"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag to fnone'><span>Tonga</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag to fnone"><span>Tonga</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="218"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tt fnone'><span>Trinidad and Tobago</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tt fnone"><span>Trinidad and Tobago</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="219"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tn fnone'><span>Tunisia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tn fnone"><span>Tunisia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="220"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tr fnone'><span>Turkey</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tr fnone"><span>Turkey</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="221"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tm fnone'><span>Turkmenistan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tm fnone"><span>Turkmenistan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="222"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tc fnone'><span>Turks and Caicos Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tc fnone"><span>Turks and Caicos Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="223"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag tv fnone'><span>Tuvalu</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag tv fnone"><span>Tuvalu</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="224"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag vi fnone'><span>U.S. Virgin Islands</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag vi fnone"><span>U.S. Virgin Islands</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="225"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ug fnone'><span>Uganda</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ug fnone"><span>Uganda</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="226"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ua fnone'><span>Ukraine</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ua fnone"><span>Ukraine</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="227"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ae fnone'><span>United Arab Emirates</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ae fnone"><span>United Arab Emirates</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="228"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag gb fnone'><span>United Kingdom</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag gb fnone"><span>United Kingdom</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="229"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag us fnone'><span>United States</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag us fnone"><span>United States</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="230"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag uy fnone'><span>Uruguay</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag uy fnone"><span>Uruguay</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="231"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag uz fnone'><span>Uzbekistan</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag uz fnone"><span>Uzbekistan</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="232"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag vu fnone'><span>Vanuatu</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag vu fnone"><span>Vanuatu</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="233"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag va fnone'><span>Vatican</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag va fnone"><span>Vatican</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="234"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ve fnone'><span>Venezuela</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ve fnone"><span>Venezuela</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="235"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag vn fnone'><span>Vietnam</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag vn fnone"><span>Vietnam</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="236"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag wf fnone'><span>Wallis and Futuna</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag wf fnone"><span>Wallis and Futuna</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="237"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag eh fnone'><span>Western Sahara</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag eh fnone"><span>Western Sahara</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="238"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag ye fnone'><span>Yemen</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag ye fnone"><span>Yemen</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="239"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag zm fnone'><span>Zambia</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag zm fnone"><span>Zambia</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                        <li data-original-index="240"><a tabindex="0" class=""
+                                                data-normalized-text="<img src='/static/images/blank.gif' class='flag zw fnone'><span>Zimbabwe</span>"
+                                                data-tokens="null"><img src="/static/images/blank.gif"
+                                                    class="flag zw fnone"><span>Zimbabwe</span><span
+                                                    class=" glyphicon-ok check-mark"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input type="tel" name="phone" onkeyup="this.value=this.value.replace(/^(\d{3})(?=\d)/,'$1&nbsp;')" value="<?php echo $phone; ?>" class="form-control form-control-lg">
+                        </div>
+                        <div class="form-group">
+                            <div class="float-left col-md-6">
+                            <label for="firstname">First Name</label>
+                            <input type="firstname" name="firstname" value="<?php echo $firstname; ?>" class="form-control form-control-lg">
+                            </div>
+                            <div class="float-right col-md-6">
+                            <label for="lastname">last Name</label>
+                            <input type="lastname" name="lastname" value="<?php echo $lastname; ?>" class="form-control form-control-lg">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control form-control-lg">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordConf">Confirm Password</label>
+                            <input type="password" name="passwordConf" class="form-control form-control-lg">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" name="signup-btn" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+                        </div>
+                        
+                        <p class="text-center">Already a member? <a href="login">Sign In</a></p>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
